@@ -1,0 +1,39 @@
+services:
+  # ─────────────────────────────────────────
+  #  Backend  — FastAPI + DuckDB
+  # ─────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sqlgen-backend
+    restart: unless-stopped
+    ports:
+      - "3001:3001"     # Exposed for direct API access (optional)
+    volumes:
+      - backend_data:/app/data     # Persist DuckDB databases & uploads
+    env_file:
+      - ./backend/.env             # OPENROUTER_API_KEY lives here
+    environment:
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # ─────────────────────────────────────────
+  #  Frontend — React (built) + nginx
+  # ─────────────────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: /api          # nginx will proxy /api → backend:3001/api
+    container_name: sqlgen-frontend
+    restart: unless-stopped
+    ports:
+      - "8080:80"                   # Open http://localhost:8080 in your browser
+    depends_on:
+      - backend
+
+volumes:
+  backend_data:                     # Named volume — data persists between restarts

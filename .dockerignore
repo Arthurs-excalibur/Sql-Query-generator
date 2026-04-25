@@ -1,0 +1,15 @@
+# Frontend build artifacts
+node_modules
+dist
+.env
+
+# Database & user data
+*.db
+*.db.wal
+backend/data/
+uploads/
+data/
+
+# Dev files
+scratch/
+*.log

@@ -1,0 +1,19 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+.env
+
+# Data & uploads (persisted via Docker volume)
+data/
+uploads/
+
+# Databases
+*.db
+*.db.wal
+
+# Dev/test scripts
+scratch/
+audit_db.py
+check_db.py
+test_upload.py
+qa_test.py
