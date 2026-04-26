@@ -9,6 +9,7 @@ import { SavedQueriesPage } from './pages/SavedQueries';
 import { DocumentationPage } from './pages/Documentation';
 import { PlaceholderPage } from './pages/Placeholder';
 import { UploadedFilesPage } from './pages/UploadedFiles';
+import { QuickGuide } from './pages/QuickGuide';
 import { MainLayout } from './components/MainLayout';
 import { Bookmark, LifeBuoy } from 'lucide-react';
 
@@ -40,8 +41,8 @@ function App() {
         <Toast />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Setup />} />
-            <Route path="/setup" element={<Navigate to="/" replace />} />
+            <Route path="/" element={<QuickGuide />} />
+            <Route path="/setup" element={<Setup />} />
           
           <Route path="/workspace" element={<MainLayout><Workspace /></MainLayout>} />
           <Route path="/schema" element={<MainLayout><SchemaPage /></MainLayout>} />
@@ -50,6 +51,7 @@ function App() {
           <Route path="/saved" element={<MainLayout><SavedQueriesPage /></MainLayout>} />
           <Route path="/uploads" element={<MainLayout><UploadedFilesPage /></MainLayout>} />
           <Route path="/docs" element={<MainLayout><DocumentationPage /></MainLayout>} />
+          <Route path="/guide" element={<QuickGuide />} />
           <Route path="/support" element={<MainLayout><PlaceholderPage title="Support" icon={<LifeBuoy size={32} />} /></MainLayout>} />
           
           <Route path="*" element={<Navigate to="/" replace />} />

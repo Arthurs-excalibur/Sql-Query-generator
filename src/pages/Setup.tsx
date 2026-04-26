@@ -13,7 +13,8 @@ import {
   Cpu, 
   Thermometer, 
   Hash,
-  CheckCircle2
+  CheckCircle2,
+  Rocket
 } from 'lucide-react';
 
 type Step = 1 | 2;
@@ -279,7 +280,8 @@ export const Setup: React.FC = () => {
                 <button 
                   onClick={() => {
                     setDataSource(null);
-                    setStep(1);
+                    if (step === 2) setStep(1);
+                    else navigate('/');
                   }}
                   className="px-8 py-4 bg-surface text-text-secondary font-bold rounded-2xl border border-border hover:bg-subtle-surface transition-all flex items-center justify-center gap-2"
                 >
