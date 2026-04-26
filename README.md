@@ -2,7 +2,8 @@
 
 **Turn plain English into complex, executable SQL queries in seconds.**
 
-![Workspace Screenshot](./docs/images/workspace.png)
+<img width="1913" height="946" alt="b40bed52-3557-4478-a058-aa7fb1f021a0" src="https://github.com/user-attachments/assets/2898d7be-79eb-40e2-9962-738069b0efc9" />
+
 
 Stop wrestling with SQL syntax. Excalibur is an AI-powered analytical workspace that lets you upload tabular data (CSV/Parquet) and query it instantly using natural language. Built for analysts and developers who want immediate answers without writing boilerplate queries or learning new database dialects.
 
